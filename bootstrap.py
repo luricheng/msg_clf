@@ -4,7 +4,7 @@ import numpy as np
 from sklearn import metrics
 import time
 from sklearn.decomposition import PCA
-from Tfidf import Tfidf
+from tfidf import Tfidf
 from xgboost import XGBClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
