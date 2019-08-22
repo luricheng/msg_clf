@@ -60,7 +60,7 @@ if __name__ == '__main__':
         with open(os.path.join(OUTPUT_DIR, model_name + ".txt"), "w") as fp:
             output = "model:\n%s\n" \
                      "acc: %s\n" \
-                     "confusion_matrix:\n%s" \
+                     "confusion_matrix:\n%s\n" \
                      "classification_report:\n%s" \
                      "cost time: %s sec\n"
             output = output % (model, acc, metrics.confusion_matrix(y_true=y_test, y_pred=y_pred),

@@ -9,7 +9,8 @@ RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
 acc: 0.9886363636363636
 confusion_matrix:
 [[1458    6]
- [  13  195]]classification_report:
+ [  13  195]]
+classification_report:
               precision    recall  f1-score   support
 
            0    0.99116   0.99590   0.99353      1464
@@ -18,4 +19,4 @@ confusion_matrix:
     accuracy                        0.98864      1672
    macro avg    0.98066   0.96670   0.97354      1672
 weighted avg    0.98855   0.98864   0.98855      1672
-cost time: 0.9491426944732666 sec
+cost time: 0.9482579231262207 sec
