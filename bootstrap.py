@@ -50,7 +50,7 @@ if __name__ == '__main__':
     for model in tqdm(models):
         start_time = time.time()
         model.fit(x_train, y_train)
-        y_pred = model.predict(x_test)
+        y_pred = model.predict(x_test).astype(int)
         acc = np.sum(y_pred == y_test) / len(y_test)
         model_name = utils.get_class_name(model)
         if acc > top_acc:
@@ -58,11 +58,14 @@ if __name__ == '__main__':
         if not os.path.exists(OUTPUT_DIR):
             os.mkdir(OUTPUT_DIR)
         with open(os.path.join(OUTPUT_DIR, model_name + ".txt"), "w") as fp:
-            fp.write("model_name: %s\n" % model_name)
-            fp.write("acc: %s\n" % acc)
-            fp.write('cost time: %s sec\n' % (time.time() - start_time))
-            fp.write(metrics.classification_report(y_pred=y_pred.astype(int),
-                                                   y_true=y_test.astype(int),
-                                                   target_names=['0', '1'],
-                                                   digits=5))
+            output = "model:\n%s\n" \
+                     "acc: %s\n" \
+                     "confusion_matrix:\n%s" \
+                     "classification_report:\n%s" \
+                     "cost time: %s sec\n"
+            output = output % (model, acc, metrics.confusion_matrix(y_true=y_test, y_pred=y_pred),
+                               metrics.classification_report(y_pred=y_pred, y_true=y_test, target_names=['0', '1'],
+                                                             digits=5),
+                               time.time() - start_time)
+            fp.write(output)
     print("top_acc: %s, model: %s" % (top_acc, top_model))

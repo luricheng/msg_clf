@@ -1,6 +1,12 @@
-model_name: SVC
+model:
+SVC(C=1.0, cache_size=200, class_weight='balanced', coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto_deprecated',
+    kernel='rbf', max_iter=-1, probability=False, random_state=1,
+    shrinking=True, tol=0.001, verbose=False)
 acc: 0.944377990430622
-cost time: 0.8774082660675049 sec
+confusion_matrix:
+[[1381   83]
+ [  10  198]]classification_report:
               precision    recall  f1-score   support
 
            0    0.99281   0.94331   0.96743      1464
@@ -9,3 +15,4 @@ cost time: 0.8774082660675049 sec
     accuracy                        0.94438      1672
    macro avg    0.84872   0.94761   0.88862      1672
 weighted avg    0.95696   0.94438   0.94782      1672
+cost time: 0.8685986995697021 sec
