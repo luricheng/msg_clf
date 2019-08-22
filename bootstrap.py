@@ -6,6 +6,7 @@ import time
 from sklearn.decomposition import PCA
 from tfidf import Tfidf
 from xgboost import XGBClassifier
+from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import SGDClassifier
@@ -15,14 +16,15 @@ from sklearn.linear_model import SGDClassifier
 
 transform_list = [
     Tfidf(),
+    StandardScaler(),
     PCA(n_components=100),
 ]
 
 models = [
     XGBClassifier(random_state=1, n_estimators=100, n_jobs=4),
-    RandomForestClassifier(random_state=1, n_estimators=100, n_jobs=4),
-    SVC(random_state=1, kernel='rbf', class_weight='balanced'),
-    SGDClassifier(random_state=1, n_jobs=4)
+    # RandomForestClassifier(random_state=1, n_estimators=100, n_jobs=4),
+    # SVC(random_state=1, kernel='rbf', class_weight='balanced'),
+    # SGDClassifier(random_state=1, n_jobs=4)
 ]
 
 if __name__ == '__main__':
