@@ -1,0 +1,11 @@
+model_name: SGDClassifier
+acc: 0.9712918660287081
+cost time: 0.21502923965454102 sec
+              precision    recall  f1-score   support
+
+           0    0.97517   0.99249   0.98375      1464
+           1    0.93956   0.82212   0.87692       208
+
+    accuracy                        0.97129      1672
+   macro avg    0.95736   0.90730   0.93034      1672
+weighted avg    0.97074   0.97129   0.97046      1672

@@ -1,0 +1,11 @@
+model_name: SVC
+acc: 0.944377990430622
+cost time: 0.8774082660675049 sec
+              precision    recall  f1-score   support
+
+           0    0.99281   0.94331   0.96743      1464
+           1    0.70463   0.95192   0.80982       208
+
+    accuracy                        0.94438      1672
+   macro avg    0.84872   0.94761   0.88862      1672
+weighted avg    0.95696   0.94438   0.94782      1672

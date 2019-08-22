@@ -7,6 +7,8 @@ from sklearn.decomposition import PCA
 from tfidf import Tfidf
 from xgboost import XGBClassifier
 from sklearn.preprocessing import StandardScaler
+import os
+from tqdm import tqdm
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import SGDClassifier
@@ -14,17 +16,19 @@ from sklearn.linear_model import SGDClassifier
 # todo Label==1的样本 数量过少
 # todo 后续: 过采样???
 
+OUTPUT_DIR = "./output"
+
 transform_list = [
     Tfidf(),
     StandardScaler(),
-    PCA(n_components=100),
+    PCA(n_components=148, random_state=1),
 ]
 
 models = [
     XGBClassifier(random_state=1, n_estimators=100, n_jobs=4),
-    # RandomForestClassifier(random_state=1, n_estimators=100, n_jobs=4),
-    # SVC(random_state=1, kernel='rbf', class_weight='balanced'),
-    # SGDClassifier(random_state=1, n_jobs=4)
+    RandomForestClassifier(random_state=1, n_estimators=100, n_jobs=4),
+    SVC(random_state=1, kernel='rbf', class_weight='balanced'),
+    SGDClassifier(random_state=1, n_jobs=4)
 ]
 
 if __name__ == '__main__':
@@ -42,15 +46,23 @@ if __name__ == '__main__':
     x_train = utils.fit_transform_all(transform_list, x_train)
     x_test = utils.transform_all(transform_list, x_test)
 
-    for model in models:
+    top_acc, top_model = -0.0, ""
+    for model in tqdm(models):
         start_time = time.time()
         model.fit(x_train, y_train)
         y_pred = model.predict(x_test)
         acc = np.sum(y_pred == y_test) / len(y_test)
-        print("====> model: %s" % utils.get_class_name(model))
-        print("====> acc: %s" % acc)
-        print('====> cost time: %s' % (time.time() - start_time))
-        print(metrics.classification_report(y_pred=y_pred.astype(int),
-                                            y_true=y_test.astype(int),
-                                            target_names=['0', '1']))
-
+        model_name = utils.get_class_name(model)
+        if acc > top_acc:
+            top_acc, top_model = acc, model_name
+        if not os.path.exists(OUTPUT_DIR):
+            os.mkdir(OUTPUT_DIR)
+        with open(os.path.join(OUTPUT_DIR, model_name + ".txt"), "w") as fp:
+            fp.write("model_name: %s\n" % model_name)
+            fp.write("acc: %s\n" % acc)
+            fp.write('cost time: %s sec\n' % (time.time() - start_time))
+            fp.write(metrics.classification_report(y_pred=y_pred.astype(int),
+                                                   y_true=y_test.astype(int),
+                                                   target_names=['0', '1'],
+                                                   digits=5))
+    print("top_acc: %s, model: %s" % (top_acc, top_model))

@@ -1,0 +1,11 @@
+model_name: RandomForestClassifier
+acc: 0.9886363636363636
+cost time: 1.0353431701660156 sec
+              precision    recall  f1-score   support
+
+           0    0.99116   0.99590   0.99353      1464
+           1    0.97015   0.93750   0.95355       208
+
+    accuracy                        0.98864      1672
+   macro avg    0.98066   0.96670   0.97354      1672
+weighted avg    0.98855   0.98864   0.98855      1672

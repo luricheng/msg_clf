@@ -1,0 +1,11 @@
+model_name: XGBClassifier
+acc: 0.9898325358851675
+cost time: 0.783912181854248 sec
+              precision    recall  f1-score   support
+
+           0    0.99251   0.99590   0.99420      1464
+           1    0.97044   0.94712   0.95864       208
+
+    accuracy                        0.98983      1672
+   macro avg    0.98148   0.97151   0.97642      1672
+weighted avg    0.98977   0.98983   0.98978      1672
