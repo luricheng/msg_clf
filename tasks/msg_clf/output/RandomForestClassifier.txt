@@ -19,4 +19,4 @@ classification_report:
     accuracy                        0.98864      1672
    macro avg    0.98066   0.96670   0.97354      1672
 weighted avg    0.98855   0.98864   0.98855      1672
-cost time: 1.046553134918213 sec
+cost time: 1.143660306930542 sec
