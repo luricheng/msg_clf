@@ -6,17 +6,17 @@ XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
               nthread=None, objective='binary:logistic', random_state=1,
               reg_alpha=0, reg_lambda=1, scale_pos_weight=1, seed=None,
               silent=None, subsample=1, verbosity=1)
-acc: 0.9898325358851675
+acc: 0.892
 confusion_matrix:
-[[1458    6]
- [  11  197]]
+[[602  83]
+ [ 79 736]]
 classification_report:
               precision    recall  f1-score   support
 
-           0    0.99251   0.99590   0.99420      1464
-           1    0.97044   0.94712   0.95864       208
+           0    0.88399   0.87883   0.88141       685
+           1    0.89866   0.90307   0.90086       815
 
-    accuracy                        0.98983      1672
-   macro avg    0.98148   0.97151   0.97642      1672
-weighted avg    0.98977   0.98983   0.98978      1672
-cost time: 0.8024370670318604 sec
+    accuracy                        0.89200      1500
+   macro avg    0.89133   0.89095   0.89113      1500
+weighted avg    0.89196   0.89200   0.89197      1500
+cost time: 0.7739760875701904 sec

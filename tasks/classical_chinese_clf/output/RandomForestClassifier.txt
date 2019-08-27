@@ -6,17 +6,17 @@ RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
                        min_weight_fraction_leaf=0.0, n_estimators=100, n_jobs=4,
                        oob_score=False, random_state=1, verbose=0,
                        warm_start=False)
-acc: 0.9886363636363636
+acc: 0.8933333333333333
 confusion_matrix:
-[[1458    6]
- [  13  195]]
+[[582 103]
+ [ 57 758]]
 classification_report:
               precision    recall  f1-score   support
 
-           0    0.99116   0.99590   0.99353      1464
-           1    0.97015   0.93750   0.95355       208
+           0    0.91080   0.84964   0.87915       685
+           1    0.88037   0.93006   0.90453       815
 
-    accuracy                        0.98864      1672
-   macro avg    0.98066   0.96670   0.97354      1672
-weighted avg    0.98855   0.98864   0.98855      1672
-cost time: 0.946019172668457 sec
+    accuracy                        0.89333      1500
+   macro avg    0.89558   0.88985   0.89184      1500
+weighted avg    0.89427   0.89333   0.89294      1500
+cost time: 0.747999906539917 sec

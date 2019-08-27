@@ -5,17 +5,17 @@ SGDClassifier(alpha=0.0001, average=False, class_weight=None,
               max_iter=1000, n_iter_no_change=5, n_jobs=4, penalty='l2',
               power_t=0.5, random_state=1, shuffle=True, tol=0.001,
               validation_fraction=0.1, verbose=0, warm_start=False)
-acc: 0.9712918660287081
+acc: 0.9013333333333333
 confusion_matrix:
-[[1453   11]
- [  37  171]]
+[[605  80]
+ [ 68 747]]
 classification_report:
               precision    recall  f1-score   support
 
-           0    0.97517   0.99249   0.98375      1464
-           1    0.93956   0.82212   0.87692       208
+           0    0.89896   0.88321   0.89102       685
+           1    0.90326   0.91656   0.90987       815
 
-    accuracy                        0.97129      1672
-   macro avg    0.95736   0.90730   0.93034      1672
-weighted avg    0.97074   0.97129   0.97046      1672
-cost time: 0.23515534400939941 sec
+    accuracy                        0.90133      1500
+   macro avg    0.90111   0.89989   0.90044      1500
+weighted avg    0.90130   0.90133   0.90126      1500
+cost time: 0.05956745147705078 sec
